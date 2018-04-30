@@ -10,6 +10,13 @@ namespace PriorityQueues
     {
         static void Main(string[] args)
         {
+            MinHeap();
+
+            Console.Read();
+        }
+
+        private static void MaxHeap()
+        {
             UnOrderedPriorityQueue upq = new UnOrderedPriorityQueue(10);
 
             upq.Insert("P");
@@ -24,8 +31,23 @@ namespace PriorityQueues
             upq.Insert("L");
             upq.Insert("E");
             Console.WriteLine(upq.DeleteMax());
+        }
 
-            Console.Read();
+        private static void MinHeap()
+        {
+            MinBinaryHeap upq = new MinBinaryHeap(10);
+            upq.Insert("P");
+            upq.Insert("Q");
+            upq.Insert("Y");
+            Console.WriteLine(upq.DeleteMin()); //E
+            upq.Insert("X");
+            upq.Insert("T");
+            upq.Insert("M");
+            Console.WriteLine(upq.DeleteMin()); //A
+            upq.Insert("P");
+            upq.Insert("L");
+            upq.Insert("Z");
+            Console.WriteLine(upq.DeleteMin()); //E
         }
     }
 }

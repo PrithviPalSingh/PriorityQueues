@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace PriorityQueues
 {
+    /// <summary>
+    /// Binary Heap"
+    /// 1. Keys in Nodes
+    /// 2. Parent keys no smaller that children's keys
+    /// 3. Array starts from index 1.
+    /// 4. Largest key at Array[1].
+    /// 5. Parent or node K is K/2
+    /// 6. Children of node K are 2k and 2K+1
+    /// </summary>
     class UnOrderedPriorityQueue
     {
         string[] Items = null;
@@ -77,35 +86,22 @@ namespace PriorityQueues
             }
         }
 
+        private bool Less(int i, int j)
+        {
+            return Items[i].CompareTo(Items[j]) < 0;
+        }
+
         private void Sink(int k)
         {
-            //int j = 2 * k + 1;
-
-            //while (Less(Items[j], Items[k]))
-            //{
-            //    if (j < N && Less(Items[j], Items[j - 1]))
-            //    {
-            //        j--;
-            //    }
-
-            //    Exchange(k, j);
-            //    k = j++;
-            //    j = 2 * k + 1;
-            //}
-
-            while ((2 * k) < N)
+            while (2 * k < N)
             {
                 int j = 2 * k;
 
-                if (j < N && Less(Items[j], Items[j + 1]))
-                {
+                if (j < N - 1 && Less(j, j + 1))
                     j++;
-                }
 
-                if (!Less(Items[k], Items[j]))
-                {
+                if (!Less(k, j))
                     break;
-                }
 
                 Exchange(k, j);
                 k = j;
