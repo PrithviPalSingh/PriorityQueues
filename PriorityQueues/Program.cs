@@ -49,5 +49,7 @@ namespace PriorityQueues
             upq.Insert("Z");
             Console.WriteLine(upq.DeleteMin()); //E
         }
+
+      
     }
 }

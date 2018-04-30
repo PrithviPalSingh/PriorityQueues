@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.timer_bouncingBalls = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // timer_bouncingBalls
+            // 
+            this.timer_bouncingBalls.Enabled = true;
+            this.timer_bouncingBalls.Interval = 1;
+            this.timer_bouncingBalls.Tick += new System.EventHandler(this.timer_bouncingBalls_Tick);
             // 
             // Form1
             // 
@@ -38,12 +46,14 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.MouseEnter += new System.EventHandler(this.Form1_MouseEnter);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timer_bouncingBalls;
     }
 }
 
