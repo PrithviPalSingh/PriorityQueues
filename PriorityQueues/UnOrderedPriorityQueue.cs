@@ -12,7 +12,7 @@ namespace PriorityQueues
     /// 2. Parent keys no smaller that children's keys
     /// 3. Array starts from index 1.
     /// 4. Largest key at Array[1].
-    /// 5. Parent or node K is K/2
+    /// 5. Parent of node K is K/2
     /// 6. Children of node K are 2k and 2K+1
     /// </summary>
     class UnOrderedPriorityQueue
