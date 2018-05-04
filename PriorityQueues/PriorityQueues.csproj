@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="MinBinaryHeap.cs" />
+    <Compile Include="MinIndexedPriorityQueue.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnOrderedPriorityQueue.cs" />

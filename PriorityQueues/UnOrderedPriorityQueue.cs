@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PriorityQueues
 {
     /// <summary>
-    /// Binary Heap"
+    /// Binary Heap
     /// 1. Keys in Nodes
     /// 2. Parent keys no smaller that children's keys
     /// 3. Array starts from index 1.

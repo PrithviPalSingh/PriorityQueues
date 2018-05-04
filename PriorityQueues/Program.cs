@@ -10,8 +10,7 @@ namespace PriorityQueues
     {
         static void Main(string[] args)
         {
-            MinHeap();
-
+            TestMinIndexedPriorityQueue();
             Console.Read();
         }
 
@@ -50,6 +49,17 @@ namespace PriorityQueues
             Console.WriteLine(upq.DeleteMin()); //E
         }
 
-      
+        private static void TestMinIndexedPriorityQueue()
+        {
+            MinIndexedPriorityQueue<double> mipq = new MinIndexedPriorityQueue<double>(10);
+            for (int i = 0; i < 10; i++)
+                mipq.insert(i, 10 - i);
+
+            Console.WriteLine($"{mipq.minKey()}, { mipq.size()}");
+            mipq.deleteKey(8);
+            Console.WriteLine($"{mipq.minKey()}, { mipq.size()}");
+            mipq.deleteMin();
+            Console.WriteLine($"{mipq.minKey()}, { mipq.size()}");
+        }
     }
 }
