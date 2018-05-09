@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace PriorityQueues
 {
-    class MinBinaryHeap
+    class MinBinaryHeap<T> where T : IComparable<T>
     {
-        private string[] Items;
+        private T[] Items;
 
-        private int N;
+        private int n;
+
+        public int N { get => n; set => n = value; }
 
         public MinBinaryHeap(int n)
         {
-            Items = new string[n];
+            Items = new T[n];
         }
 
-        public void Insert(string a)
+        public void Insert(T a)
         {
             Items[++N] = a;
             Swim(N);
@@ -50,13 +52,27 @@ namespace PriorityQueues
             }
         }
 
-        public string DeleteMin()
+        public T DeleteMin()
         {
-            string min = Items[1];
+            T min = Items[1];
             Exchange(1, N--);
             Sink(1);
-            Items[N + 1] = null;
+            Items[N + 1] = default(T);
             return min;
+        }
+
+        public T Min()
+        {
+            //int MinIndex = 1;
+            //for (int i = 1; i < N; i++)
+            //{
+            //    if (greater(MinIndex, i))
+            //    {
+            //        MinIndex = i;
+            //    }
+            //}
+
+            return Items[1];
         }
 
         private bool greater(int i, int j)

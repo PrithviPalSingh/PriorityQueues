@@ -15,17 +15,19 @@ namespace PriorityQueues
     /// 5. Parent of node K is K/2
     /// 6. Children of node K are 2k and 2K+1
     /// </summary>
-    class UnOrderedPriorityQueue
+    class UnOrderedPriorityQueue<T> where T:IComparable<T>
     {
-        string[] Items = null;
-        int N = 0;
+        T[] Items = null;
+        int n = 0;
+
+        public int N { get => n; set => n = value; }
 
         public UnOrderedPriorityQueue(int capacity)
         {
-            Items = new string[capacity];
+            Items = new T[capacity];
         }
 
-        public void Insert(string item)
+        public void Insert(T item)
         {
             ////Normal implementation;
             //Items[N++] = item;
@@ -35,7 +37,7 @@ namespace PriorityQueues
             Swim(N - 1);
         }
 
-        public string DeleteMax()
+        public T DeleteMax()
         {
             ////Normal Implementation
             //int MaxIndex = 0;
@@ -51,25 +53,25 @@ namespace PriorityQueues
             //return Items[--N];
 
             ////BH Implementation
-            string max = Items[0];
+            T max = Items[0];
             Exchange(0, --N);
             Sink(0);
-            Items[N] = null;
+            Items[N] = default(T);
             return max;
         }
 
-        public string Max()
+        public T Max()
         {
-            int MaxIndex = 0;
-            for (int i = 1; i < N; i++)
-            {
-                if (Less(Items[MaxIndex], Items[i]))
-                {
-                    MaxIndex = i;
-                }
-            }
+            //int MaxIndex = 0;
+            //for (int i = 1; i < N; i++)
+            //{
+            //    if (Less(Items[MaxIndex], Items[i]))
+            //    {
+            //        MaxIndex = i;
+            //    }
+            //}
 
-            return Items[MaxIndex];
+            return Items[0];
         }
 
         public bool IsEmpty()
@@ -108,7 +110,7 @@ namespace PriorityQueues
             }
         }
 
-        private bool Less(string a, string b)
+        private bool Less(T a, T b)
         {
             return a.CompareTo(b) < 0;
         }

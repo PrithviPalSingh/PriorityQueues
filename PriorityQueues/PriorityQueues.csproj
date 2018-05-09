@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
+    <Compile Include="MaxIndexedPriorityQueue.cs" />
+    <Compile Include="Median.cs" />
     <Compile Include="MinBinaryHeap.cs" />
     <Compile Include="MinIndexedPriorityQueue.cs" />
     <Compile Include="Program.cs" />
