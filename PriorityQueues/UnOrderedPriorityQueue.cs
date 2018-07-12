@@ -79,6 +79,12 @@ namespace PriorityQueues
             return N == 0;
         }
 
+        /// <summary>
+        /// Children's key is larger than parent's key
+        ///   - Exchange key in child with key in parent
+        ///   - Repeat uptil heap order restored
+        /// </summary>
+        /// <param name="k"></param>
         private void Swim(int k)
         {
             while (k > 0 && Less(Items[k / 2], Items[k]))
@@ -93,6 +99,12 @@ namespace PriorityQueues
             return Items[i].CompareTo(Items[j]) < 0;
         }
 
+        /// <summary>
+        /// Parent's key become smaller than one or both children's key
+        ///   - Exchange key in parent with key in larger child
+        ///   - Repeat uptil heap order is restored
+        /// </summary>
+        /// <param name="k"></param>
         private void Sink(int k)
         {
             while (2 * k < N)
